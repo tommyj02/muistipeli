@@ -22,8 +22,8 @@ const endOfGameStat = document.getElementById('triesText');
 
 const closeOverlay = document.getElementById('closeOverlay');
 
-const cardflipAudio = new Audio('../cardflip.mp3');
-const matchAudio = new Audio('../mariocoin.mp3');
+const cardflipAudio = new Audio('./cardflip.mp3');
+const matchAudio = new Audio('./mariocoin.mp3');
 
 let firstCard = null;
 let secondCard = null;
