@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -5,18 +9,25 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
+    margin: 20px;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
     grid-gap: 10px;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 .card {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    
+    aspect-ratio: 1;
+    font-size: clamp(24px, 5vw, 40px);
+
     background-color: #ccc;
     display: flex;
     align-items: center;
@@ -27,4 +38,43 @@ body {
 
 .card.flipped {
     background-color: #fff;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay[hidden] {
+    display: none;
+}
+
+.overlay-content {
+    color: white;
+    text-align: center;
+}
+
+#card-count-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#card-count-input[hidden] {
+    display: none;
+}
+
+input,
+button {
+    max-width: 100%;
+    font-size: 16px;
 }
